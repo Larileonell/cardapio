@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
+
 @Table(name ="foods")
 @Entity(name = "foods")
 @Getter
@@ -19,4 +20,9 @@ public class Food {
     private String title;
     private String image;
     private Integer price;
+    public Food(FoodRequestDTO data){
+        this.image = data.image();
+        this.price = data.price();
+        this.title = data.title();
+    }
 }
